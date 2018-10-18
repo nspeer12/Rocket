@@ -10,12 +10,16 @@ public class RocketTest implements BlobGUI{
 	
 	static SandBox sandbox;
 	
+	
+	
 	public RocketTest()
 	{
 		sandbox = new SandBox(Color.BLACK);
 		sandbox.init((BlobGUI) this);
 		sandbox.setSandBoxMode(SandBoxMode.FLOW);
 		sandbox.setFrameRate(100);
+		
+		
 		
 	}
 	
@@ -24,11 +28,18 @@ public class RocketTest implements BlobGUI{
 		new RocketTest();
 	}
 	
+
+	
 	public void generate()
-	{
+	{	
+		
 		Rocket rocket = new Rocket(1,1);
-		rocket.setLoc(100, 100);
-		rocket.setColor(Color.WHITE);
+		
+		// int width = sandbox.getPanelBounds().width;
+		// int height = sandbox.getPanelBounds().height;
+		
+		rocket.setLoc(width/2 , height/2);
+		//rocket.setColor(Color.red);
 		System.out.println(rocket.report());
 		sandbox.addBlob(rocket);
 	}
