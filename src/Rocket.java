@@ -28,9 +28,9 @@ public class Rocket extends PolyBlob implements BlobAction{
 		this.setColor(Color.red);
 		
 	}
-	
-	double angle = 0;
-	double speed = .1;
+	double pi = 3.14159;
+	double angle = -3/4 * pi;
+	double speed = .3;
 	double x = 0;
 	double y = 0;
 	
@@ -54,15 +54,16 @@ public class Rocket extends PolyBlob implements BlobAction{
 				
 				// locations
 					// x = x + (int) Math.round(speed * Math.cos(angle));
-					// x = x + (int) Math.round(speed * Math.cos(angle));
-		x = x + (int) Math.round(speed * Math.cos((int) angle));
-		y = y + (int) Math.round(speed * Math.cos((int) angle));
+		//			// x = x + (int) Math.round(speed * Math.cos(angle));
+		///x = x + (int) Math.round(speed * Math.cos(angle));
+		//y = y + (int) Math.round(speed * Math.cos(angle));
 		int key = e.getKeyCode();
 		
 		if(key == 37)
 		{
-			angle +=  .3;
-			angle %= 2 *3.14159;
+			angle +=  1;
+			angle %= 6;
+			//angle %= 2 *3.14159;
 			this.setColor(Color.red);
 			this.setAngle(angle);
 			System.out.println("left arrow");
@@ -72,8 +73,9 @@ public class Rocket extends PolyBlob implements BlobAction{
 		
 		if(key == 39)
 		{
-			angle -= .3;
-			angle %= 2 *3.14159;
+			angle -= 1;
+			angle %= 6;
+			//angle %= 2 *3.14159;
 			this.setColor(Color.green);
 			this.setAngle(angle);
 			System.out.println("right arrow");	
@@ -83,7 +85,10 @@ public class Rocket extends PolyBlob implements BlobAction{
 		if(key == 38)
 		{
 			
-			y = -1;
+			x -= 1 + (speed * Math.cos(angle));
+			System.out.println("x = " + x);
+			y -= (speed * Math.cos(angle));
+			System.out.println("y = " + y);
 			this.setColor(Color.blue);
 			System.out.println("up arrow");
 		}
@@ -91,11 +96,18 @@ public class Rocket extends PolyBlob implements BlobAction{
 		if(key == 40)
 		{
 			System.out.println("down arrow");
-			y = 1;
+			x += (speed * Math.cos(angle));
+			System.out.println("x = " + x);
+			y += (speed * Math.cos(angle));
+			System.out.println("y = " + y);
 		}
 			System.out.println("down arrow");
-		this.setDelta((int) x, (int) y);
-
-		
+			
+			x += Math.round(speed * Math.cos(angle));
+			System.out.println("x = " + x);
+			y += Math.round(speed * Math.cos(angle));
+			System.out.println("y = " + y);
+			this.setDelta((int) x, (int) y);
 	}
+	
 }
