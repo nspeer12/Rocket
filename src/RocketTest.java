@@ -38,7 +38,7 @@ public class RocketTest implements BlobGUI{
 		// int width = sandbox.getPanelBounds().width;
 		// int height = sandbox.getPanelBounds().height;
 		
-		rocket.setLoc(width/2 , height/2);
+		rocket.setLoc(100 , 200);
 		//rocket.setColor(Color.red);
 		System.out.println(rocket.report());
 		sandbox.addBlob(rocket);
