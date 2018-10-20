@@ -5,10 +5,26 @@ import java.awt.event.KeyEvent;
 import blobz.BlobAction;
 import blobz.PolyBlob;
 
-public class Rocket extends PolyBlob implements BlobAction{
+public class Rocket extends PolyBlob implements BlobAction {
 	
 	Point[] p = {
 			
+			new Point(-2,0),
+			new Point(-5, -5),
+			new Point(0, -2),
+			new Point(0, -10),
+			new Point(5, -2),
+			new Point(15, 0),
+			new Point(5, 2),
+			new Point(0, 10),
+			new Point(0, 2),
+			new Point(-5, 5),
+			/* triangle
+			new Point(-10, -10),
+			new Point(10, 0),
+			new Point(-10, 10),
+			*/
+			/*
 			new Point(0, 0),
 			new Point(-10, -25),
 			
@@ -21,7 +37,8 @@ public class Rocket extends PolyBlob implements BlobAction{
 			new Point(20, -35),
 			
 			
-			new Point(10, -25),
+			new Point(10, -25)
+			*/
 			
 			
 		
@@ -40,7 +57,7 @@ public class Rocket extends PolyBlob implements BlobAction{
 		
 	}
 	private double pi = 3.14159;
-	private double angle = -3/4 * pi;
+	private double angle = 0;
 	private double speed = 5;
 	private double x = 0;
 	private double y = 0;
@@ -62,59 +79,47 @@ public class Rocket extends PolyBlob implements BlobAction{
 					// subtract from delta
 					// if less than 0, add 2pi
 					// turn with setAngle()
-				
-				// locations
-					// x = x + (int) Math.round(speed * Math.cos(angle));
-		//			// x = x + (int) Math.round(speed * Math.cos(angle));
-		///x = x + (int) Math.round(speed * Math.cos(angle));
-		//y = y + (int) Math.round(speed * Math.cos(angle));
+
 		int key = e.getKeyCode();
 		
+		// when left arrow is pressed
 		if(key == 37)
 		{
 			angle +=  .5;
-			
-			this.setColor(Color.red);
-			
-			System.out.println("left arrow");
-			
 		}
 
+
 		
-		
+		// when right arrow is pressed
 		if(key == 39)
 		{
-			angle -= .5;
-
-			this.setColor(Color.green);
-
-			System.out.println("right arrow");	
+			angle -= .5;	
 		}
 
-		angle %= 2 * pi;
-		x = 1 + (-1 * speed * Math.sin(angle));
-		y = 1 + ( speed * Math.cos(angle));
+
 		
+		// adjust angles and velocity before up arrow is pressed
+		// this allows for user to chose angle, then accelerate
+		angle %= 2 * pi;
+		this.setAngle(angle);
+		y = 1 + (speed * Math.sin(angle));
+		x = 1 + (speed * Math.cos(angle));
+		
+		
+		// when up arrow is pressed
 		if(key == 38)
 		{
-			System.out.println("x = " + x);
-			System.out.println("y = " + y);
-			
-			this.setColor(Color.blue);
-			
-			System.out.println("up arrow");
+			// only set delta after up arrow is pressed
 			this.setDelta((int) x, (int) y);
-			
 		}
 		
 
 
 			
+		System.out.println(this.report());
 
-			System.out.println("x = " + x);
-			System.out.println("y = " + y);
 			
-			this.setAngle(angle);
+			
 			
 	}
 	
