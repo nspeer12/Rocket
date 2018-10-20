@@ -56,6 +56,7 @@ public class Rocket extends PolyBlob implements BlobAction {
 		this.setColor(Color.red);
 		
 	}
+	
 	private double pi = 3.14159;
 	private double angle = 0;
 	private double speed = 5;
