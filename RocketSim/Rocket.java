@@ -8,7 +8,6 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import blobz.BlobAction;
 import blobz.PolyBlob;
-import blobz.SandBox;
 
 public class Rocket extends PolyBlob implements BlobAction {
 	
@@ -26,8 +25,7 @@ public class Rocket extends PolyBlob implements BlobAction {
 			new Point(-5, 5),
 
 	};
-	
-	SandBox s; 
+
 	private final double pi = 3.14159;
 	private double angle = 0;
 	private double delta = 0.15;
@@ -35,12 +33,11 @@ public class Rocket extends PolyBlob implements BlobAction {
 	private double x = 0;
 	private double y = 0;
 	
-	public Rocket(int x, int y, blobz.SandBox s)
+	public Rocket(int x, int y)
 	{
 		super(x, y, 0);
 		super.setPolygon(p);
 		this.setColor(Color.orange);
-		this.s = s;
 	}
 	
 	public void keyAction(KeyEvent e) {
@@ -80,17 +77,5 @@ public class Rocket extends PolyBlob implements BlobAction {
 			y += this.getLoc().getY();
 			this.setLoc((int) x, (int) y);
 		}
-		
-		if (key == 32)
-		{
-			System.out.println("Fire");
-			Missile m = new Missile((int) this.getLoc().getX(), (int) this.getLoc().getY());
-			m.setDelta((int) x, (int) y);
-			
-			m.setAngle(angle);
-			s.addBlob(m);
-			
-		}
-
 	}
 }

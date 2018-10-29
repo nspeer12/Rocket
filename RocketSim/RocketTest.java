@@ -4,16 +4,13 @@
 // nid: st525223
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-
-import blobz.BlobAction;
 import blobz.BlobGUI;
 import blobz.SandBox;
 import blobz.SandBoxMode;
 
 public class RocketTest implements BlobGUI{
 
-	SandBox sandbox;
+	static SandBox sandbox;
 	
 	public RocketTest()
 	{
@@ -33,13 +30,8 @@ public class RocketTest implements BlobGUI{
 		// find center of GUI
 		int y = (int) sandbox.getPanelBounds().getHeight() / 2;
 		int x = (int) sandbox.getPanelBounds().getWidth() / 2;
-		Rocket rocket = new Rocket(x,y, sandbox);
+		Rocket rocket = new Rocket(x,y);
 		
 		sandbox.addBlob(rocket);
 	}
-
-
-	
-	
-	
 }

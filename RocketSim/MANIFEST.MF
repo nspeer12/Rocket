@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: RocketTest
+Class-Path: lib/Blobz.jar
+
