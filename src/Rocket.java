@@ -7,10 +7,12 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import blobz.BlobAction;
+import blobz.BlobProximity;
 import blobz.PolyBlob;
 import blobz.SandBox;
 
-public class Rocket extends PolyBlob implements BlobAction {
+public class Rocket extends PolyBlob implements BlobAction, BlobProximity
+{
 	
 	// set shape of rocket
 	Point[] p = {

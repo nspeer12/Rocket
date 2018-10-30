@@ -5,8 +5,6 @@
 
 import java.awt.Color;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import blobz.BlobAction;
 import blobz.PolyBlob;
 
 public class Missile extends PolyBlob
